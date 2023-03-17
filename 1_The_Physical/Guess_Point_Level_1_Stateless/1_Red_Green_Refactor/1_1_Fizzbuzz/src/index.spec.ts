@@ -19,7 +19,7 @@ describe("fizzbuzz", () => {
     it('returns "Fizz" for multiples of 3', () => {
       fc.assert(
         fc.property(fc.integer({ min: 1, max }), (n) =>
-          n % 3 === 0 ? fizzbuzz(n).includes("Fizz") : true
+          n % 3 === 0 && n % 5 !== 0 ? fizzbuzz(n) === "Fizz" : true
         )
       );
     });
@@ -27,7 +27,7 @@ describe("fizzbuzz", () => {
     it('returns "Buzz" for multiples of 5', () => {
       fc.assert(
         fc.property(fc.integer({ min: 1, max }), (n) =>
-          n % 5 === 0 ? fizzbuzz(n).includes("Buzz") : true
+          n % 5 === 0 && n % 3 !== 0 ? fizzbuzz(n) === "Buzz" : true
         )
       );
     });
