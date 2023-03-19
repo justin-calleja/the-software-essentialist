@@ -3,17 +3,30 @@ export type ErrorKey =
   | "must-have-digit"
   | "must-have-upper-case-letter";
 
-const validatePassword = (
-  password: string
-): { isValid: boolean; errors?: ErrorKey[] } => {
+export type ValidationResult = { isValid: boolean; errors: ErrorKey[] };
+
+const validatePassword = (password: string): ValidationResult => {
+  const result: ReturnType<typeof validatePassword> = {
+    isValid: true,
+    errors: [],
+  };
+
   if (password.length < 5 || password.length > 15) {
-    return {
-      isValid: false,
-      errors: ["invalid-length"],
-    };
+    result.isValid = false;
+    result.errors.push("invalid-length");
   }
 
-  return { isValid: true };
+  if (!/\d/.test(password)) {
+    result.isValid = false;
+    result.errors.push("must-have-digit");
+  }
+
+  if (!/[A-Z]/.test(password)) {
+    result.isValid = false;
+    result.errors.push("must-have-upper-case-letter");
+  }
+
+  return result;
 };
 
 export default validatePassword;
