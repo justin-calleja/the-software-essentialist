@@ -42,4 +42,22 @@ describe("palindrome checker", () => {
       expect(isPalindrome(str)).toBe(true);
     });
   });
+
+  describe("detects palindroms in phrases", () => {
+    it.each([["Was It A Rat I Saw"], ["Never Odd or Even"]])(
+      "like %p",
+      (str) => {
+        expect(isPalindrome(str)).toBe(true);
+      }
+    );
+  });
+
+  describe("rejects empty strings or strings with only whitespace", () => {
+    it.each([[""], ["  \n \n "], ["      \t "]])(
+      "like %p",
+      (str) => {
+        expect(isPalindrome(str)).toBe(false);
+      }
+    );
+  });
 });
