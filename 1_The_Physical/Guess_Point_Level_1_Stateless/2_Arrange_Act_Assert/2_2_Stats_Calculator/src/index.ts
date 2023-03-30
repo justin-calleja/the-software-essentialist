@@ -1,4 +1,5 @@
 export type Stats = {
+  numberOfEls?: number;
   max?: number;
   min?: number;
 };
@@ -21,6 +22,7 @@ const statsCalculator = (nums: number[]): Stats => {
   }
 
   return {
+    numberOfEls: nums.length,
     max,
     min,
   };

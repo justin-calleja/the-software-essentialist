@@ -51,4 +51,10 @@ describe("stats calculator", () => {
       expect(statsCalculator([3]).max).toBe(3);
     });
   });
+
+  describe("can find the number of elements in the sequence", () => {
+    it("when the number of elements is 1", () => {
+      expect(statsCalculator([3]).numberOfEls).toBe(1);
+    });
+  });
 });
