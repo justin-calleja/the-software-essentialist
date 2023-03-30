@@ -65,4 +65,10 @@ describe("stats calculator", () => {
       expect(statsCalculator([4, 4]).numberOfEls).toBe(2);
     });
   });
+
+  describe("can find the average value in sequence of numbers", () => {
+    it("when the sequence of numbers is [1, 2, 3]", () => {
+      expect(statsCalculator([1, 2, 3]).avg).toBe(2);
+    });
+  });
 });
