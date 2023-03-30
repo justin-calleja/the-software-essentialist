@@ -53,8 +53,16 @@ describe("stats calculator", () => {
   });
 
   describe("can find the number of elements in the sequence", () => {
+    it("when the number of elements is 0", () => {
+      expect(statsCalculator([]).numberOfEls).toBe(0);
+    });
+
     it("when the number of elements is 1", () => {
       expect(statsCalculator([3]).numberOfEls).toBe(1);
+    });
+
+    it("when the number of elements is 2", () => {
+      expect(statsCalculator([4, 4]).numberOfEls).toBe(2);
     });
   });
 });
