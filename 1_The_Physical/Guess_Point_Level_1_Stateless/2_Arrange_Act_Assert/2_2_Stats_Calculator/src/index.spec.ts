@@ -38,5 +38,17 @@ describe("stats calculator", () => {
     it("when max value is negative", () => {
       expect(statsCalculator([-2, -4, -21, -8, -53, -40]).max).toBe(-2);
     });
+
+    it("when max value is 0", () => {
+      expect(statsCalculator([-2, -4, -21, 0, -53, -40]).max).toBe(0);
+    });
+
+    it("when max value is 0 and occurs more than once", () => {
+      expect(statsCalculator([0, -4, -21, 0, -53, 0]).max).toBe(0);
+    });
+
+    it("sequence of numbers is of length 1", () => {
+      expect(statsCalculator([3]).max).toBe(3);
+    });
   });
 });
