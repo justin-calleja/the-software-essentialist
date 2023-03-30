@@ -74,5 +74,9 @@ describe("stats calculator", () => {
     it("when the sequence of numbers is []", () => {
       expect(statsCalculator([]).avg).toBe(0);
     });
+
+    it("when the sequence of numbers is [2, 4, 21, -8, 53, 40]", () => {
+      expect(statsCalculator([2, 4, 21, -8, 53, 40]).avg).toBe(18.666666666667);
+    });
   });
 });
