@@ -11,6 +11,10 @@ describe("stats calculator", () => {
       expect(statsCalculator([2, 4, 21, 0, 53, 40]).min).toBe(0);
     });
 
+    it("when min value is 0 and occurs more than once", () => {
+      expect(statsCalculator([0, 4, 21, 0, 53, 0]).min).toBe(0);
+    });
+
     it("when seq of numbers is randomnly generated ", () => {
       const expected = -1;
 
