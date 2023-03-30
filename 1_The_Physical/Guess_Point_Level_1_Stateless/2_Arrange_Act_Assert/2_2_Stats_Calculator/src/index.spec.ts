@@ -33,4 +33,10 @@ describe("stats calculator", () => {
       );
     });
   });
+
+  describe("can find the max value in sequence of numbers", () => {
+    it("when max value is negative", () => {
+      expect(statsCalculator([-2, -4, -21, -8, -53, -40]).max).toBe(-2);
+    });
+  });
 });
