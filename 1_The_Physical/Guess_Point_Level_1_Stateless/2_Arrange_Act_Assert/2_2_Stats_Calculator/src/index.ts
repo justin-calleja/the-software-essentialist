@@ -27,7 +27,7 @@ const statsCalculator = (nums: number[]): Stats => {
   const numberOfEls = nums.length;
 
   return {
-    avg: total / numberOfEls,
+    avg: numberOfEls === 0 ? 0 : total / numberOfEls,
     numberOfEls,
     max,
     min,
